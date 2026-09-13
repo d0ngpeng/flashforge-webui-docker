@@ -2,8 +2,8 @@
 
 Docker image for FlashForgeWebUI, built from [Parallel-7/FlashForgeWebUI](https://github.com/Parallel-7/FlashForgeWebUI) releases.
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/<owner>/flashforge-webui-docker)
-[![ghcr.io](https://img.shields.io/badge/ghcr.io-Images-green)](https://ghcr.io/<owner>/flashforge-webui-docker)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/d0ngpeng/flashforge-webui-docker)
+[![ghcr.io](https://img.shields.io/badge/ghcr.io-Images-green)](https://ghcr.io/d0ngpeng/flashforge-webui-docker)
 
 This is a custom Docker image that wraps the FlashForgeWebUI binary from the upstream `Parallel-7/FlashForgeWebUI` repository. It automatically syncs with new upstream releases and builds Docker images pushed to `ghcr.io`.
 
@@ -16,8 +16,8 @@ This is a custom Docker image that wraps the FlashForgeWebUI binary from the ups
 
 ## Pre-built Images
 
-- `ghcr.io/<owner>/flashforge-webui-docker:v1.2.0-alpha.7` - Pin to specific version
-- `ghcr.io/<owner>/flashforge-webui-docker:latest` - Always latest release
+- `ghcr.io/d0ngpeng/flashforge-webui-docker:v1.2.0-alpha.7` - Pin to specific version
+- `ghcr.io/d0ngpeng/flashforge-webui-docker:latest` - Always latest release
 
 ## Quick Start
 
@@ -28,7 +28,7 @@ docker run -d \
   --name flashforge-webui \
   -p 3000:3000 \
   -v ./data:/data \
-  ghcr.io/<owner>/flashforge-webui-docker:v1.2.0-alpha.7 \
+  ghcr.io/d0ngpeng/flashforge-webui-docker:v1.2.0-alpha.7 \
   --all-saved-printers --webui-port=3000 --webui-password=changeme
 ```
 
@@ -38,7 +38,7 @@ docker run -d \
 version: "3.8"
 services:
   flashforge-webui:
-    image: ghcr.io/<owner>/flashforge-webui-docker:v1.2.0-alpha.7
+    image: ghcr.io/d0ngpeng/flashforge-webui-docker:v1.2.0-alpha.7
     container_name: flashforge-webui
     ports:
       - "3000:3000"
@@ -61,7 +61,7 @@ docker compose up -d
 ### Change password:
 
 ```bash
-docker run -d --name flashforge-webui -p 3000:3000 -v ./data:/data ghcr.io/<owner>/flashforge-webui-docker:v1.2.0-alpha.7 --webui-port=3000 --webui-password=yourpassword
+docker run -d --name flashforge-webui -p 3000:3000 -v ./data:/data ghcr.io/d0ngpeng/flashforge-webui-docker:v1.2.0-alpha.7 --webui-port=3000 --webui-password=yourpassword
 ```
 
 ## Project Structure
