@@ -1,0 +1,9 @@
+.github
+*.md
+.git
+LICENSE
+*.log
+data/
+**/*.md
+**/.gitignore
+**/.github
