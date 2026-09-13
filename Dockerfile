@@ -25,14 +25,12 @@ RUN set -eux; \
     curl -fSL "https://github.com/${REPO}/releases/download/${TAG}/${BIN_NAME}" -o /opt/flashforge/${BIN_NAME} || { echo "Failed to download ${BIN_NAME}"; exit 1; }; \
     chmod +x /opt/flashforge/${BIN_NAME}
 
-# create data dir and non-root user
-RUN useradd -m -d /home/ffuser -s /bin/false ffuser && \
-    mkdir -p ${DATA_DIR} && chown -R ffuser:ffuser /opt/flashforge ${DATA_DIR}
+# create data dir
+RUN mkdir -p ${DATA_DIR}
 
 VOLUME ["/data"]
 EXPOSE ${PORT}
 
-USER ffuser
 ENTRYPOINT ["/usr/bin/tini", "--", "/opt/flashforge/flashforge-webui-linux-x64.bin"]
 CMD ["--all-saved-printers","--webui-port=3000","--webui-password=changeme"]
 
